@@ -5,19 +5,19 @@ const usePasswordValidation = () => {
   const [message, setMessage] = useState<string>("");
 
   const handlePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
-  const handleValidationMeesage = () => {
-    if (password.length < 8) {
+    const value = event.target.value;
+
+    setPassword(value);
+    if (value.length < 8) {
       setMessage("短すぎます");
-    } else if (password.length < 16) {
+    } else if (value.length < 16) {
       setMessage("良い長さです");
     } else {
       setMessage("長すぎます");
     }
   };
 
-  return { password, message, handlePassword, handleValidationMeesage };
+  return { password, message, handlePassword };
 };
 
 export default usePasswordValidation;
