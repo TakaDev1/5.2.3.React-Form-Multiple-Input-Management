@@ -6,12 +6,19 @@ const PasswordValidation = () => {
 
   return (
     <div>
-      <label htmlFor="password">
-        パスワード: <input type="password" value={password} onChange={handlePassword} />
+      <label htmlFor="password" className="text-white">
+        パスワード:{" "}
+        <input type="password" value={password} onChange={handlePassword} className="border" />
       </label>
 
       <div>
-        <p>{message}</p>
+        <p
+          className={`${password.length < 8 ? "text-red-500" : password.length < 16 ? "text-blue-500" : "text-yellow-500"} ) {
+
+        }}`}
+        >
+          {message}
+        </p>
       </div>
     </div>
   );
